@@ -47,7 +47,6 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-	s <- x$getinverse()
 	flage_s <- x$getflage_s()
 	if(flage_s){
 	    ## the special "matrix" returned by makeCacheMatrix above is wrong.
@@ -55,6 +54,7 @@ cacheSolve <- function(x, ...) {
 		message("Please Rerun the makeCacheMatrix function.")
 		return() ## Return NULL
 	}else{
+		s <- x$getinverse()
 		if(!is.null(s)){
 			message("getting cached data")
       			return(s)
