@@ -9,7 +9,7 @@ makeCacheMatrix <- function(x = matrix()) {
 	if(nrow(x) != ncol(x) || det(x) == 0 || qr(x)$rank < nrow(x)){
 	    ## Estimate whether the matrix supplied is invertible.
 		message("The matrix supplied isn't invertible!")
-		message("Undo the makeCacheMatrix function ...\n")
+		message("Please Rerun the makeCacheMatrix function ...\n")
 		flage_s <<- TRUE
 	}else s <- NULL
 	set <- function(y = matrix()) {
@@ -17,8 +17,8 @@ makeCacheMatrix <- function(x = matrix()) {
 		    ## Estimate whether the matrix supplied is invertible.
 			message("The matrix supplied isn't invertible!")
 			message("Undo the makeCacheMatrix$set function ...\n")
-			flage_s <<- TRUE
 		}else{
+			flage_s <<- FALSE
 			if(nrow(x) == nrow(y) && ncol(x) == ncol(y)){
 				l <- c(apply(x, 1, sum) == apply(y, 1, sum),apply(x, 2, sum) == apply(y, 2, sum))
 				mark <- L(l)  ## Call the function of "L"
